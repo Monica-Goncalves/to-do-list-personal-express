@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Express To-Do List</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section>
+    <h1>Express To-Do List</h1>
+    <section>
+      <form action="/newTask" method="POST">
+        <input type="text" placeholder="task" name="task">
+        <button  class="submit" type="submit" name="add">Submit</button>
+      </form>
+    </section>
+    <section>
+      <button class="clearAll" type="button" name="clear">Clear All</button>
+      <button class="removeCompleted" type="button" name="removeCompleted">Remove Completed</button>
+    </section>
+    <section>
+      <ul class="">
+      <% for(var i=0; i<list.length; i++) {%>
+        <li class="">
+          <% if (list[i].done === true){ %>
+            <span class="strikeout"><%= list[i].task %></span>
+          <% }else{ %>
+            <span><%= list[i].task %></span>
+          <% } %>
+          <span><i class="fa fa-check-square" aria-hidden="true"></i></span>
+          <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+
+        </li>
+      <% } %>
+      </ul>
+    </section>
+
+    <h2>tasks remaining: <span class="taskCounter"><%=counter%></span></h2>
+  </section>
+  <script src="main.js"></script>
+</body>
+</html>
